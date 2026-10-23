@@ -1,5 +1,6 @@
 package com.example.sem4_aplicatii;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -51,7 +52,13 @@ public class AddActivity extends AppCompatActivity {
             boolean automata = swAutomata.isChecked();
 
             AMasina masina = new AMasina(marca, culoare, noua, combustibil, automata, rating);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("masina", masina);
 
+            Intent rezultat = new Intent();
+            rezultat.putExtras(bundle);
+            setResult(RESULT_OK, rezultat);
+            finish();
         });
     }
 }
