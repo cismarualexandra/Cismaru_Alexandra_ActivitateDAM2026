@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".AddActivity">
 
     <TextView
         android:id="@+id/tvTitlu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Adauga o masina"
         android:textSize="22sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etMarca"
@@ -24,18 +24,60 @@
         android:hint="Marca"
         android:inputType="text" />
 
-    <Button
-        android:id="@+id/btnSalveaza"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salveaza"
-        android:layout_marginTop="16dp" />
-
     <CheckBox
         android:id="@+id/cbNoua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Masina noua"
         android:layout_marginTop="8dp" />
+
+    <RadioGroup
+        android:id="@+id/rgCombustibil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/rbBenzina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Benzina" />
+
+        <RadioButton
+            android:id="@+id/rbDiesel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diesel" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/spCuloare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <RatingBar
+        android:id="@+id/rbRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_marginTop="8dp" />
+
+    <Switch
+        android:id="@+id/swAutomata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cutie automata"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnSalveaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salveaza"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>
