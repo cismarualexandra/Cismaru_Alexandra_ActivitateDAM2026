@@ -14,9 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvRezultat;
+    private final ArrayList<AMasina> listaMasini = new ArrayList<>();
+
 
     private final ActivityResultLauncher<Intent> launcher =
             registerForActivityResult(
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                             Bundle extras = result.getData().getExtras();
                             AMasina masina = (AMasina) extras.getSerializable("masina");
                             if (masina != null) {
+                                listaMasini.add(masina);
                                 tvRezultat.setText(masina.toString());
                                 Toast.makeText(this, masina.toString(), Toast.LENGTH_LONG).show();
                             }
@@ -55,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         btnAdaugaAI.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddActivityAI.class);
             launcher.launch(intent);
+        });
+
+        Button btnLista = findViewById(R.id.btnLista);
+        btnLista.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LIstaActivity.class);
+            intent.putExtra("lista", listaMasini);
+            startActivity(intent);
         });
     }
 }
