@@ -11,8 +11,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LIstaActivity extends AppCompatActivity {
+
+    private List<AMasina> listMasini = null;
+    private int idModificat = 0;
+    private Adapter adapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
