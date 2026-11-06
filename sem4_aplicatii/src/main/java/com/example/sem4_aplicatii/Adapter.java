@@ -53,6 +53,8 @@ public class Adapter extends BaseAdapter {
         numeMarca.setText(m.getMarca());
         numeCuloare.setText(m.getCuloare());
         numeCombustibil.setText(m.getCombustibil());
+        numeRating.setText("Rating: " + m.getRating());
+        numeAutomata.setText(m.isAutomata() ? "Cutie automata" : "Cutie manuala");
 
 
         return v;

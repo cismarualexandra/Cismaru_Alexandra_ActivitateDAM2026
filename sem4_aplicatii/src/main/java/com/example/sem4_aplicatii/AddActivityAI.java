@@ -39,8 +39,24 @@ public class AddActivityAI extends AppCompatActivity {
         Button btnSalveaza = findViewById(R.id.btnSalveaza);
 
         String[] culori = {"Alb", "Negru", "Rosu", "Albastru"};
-        spCuloare.setAdapter(new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_dropdown_item, culori));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_dropdown_item, culori);
+        spCuloare.setAdapter(adapter);
+
+        AMasina primita = (AMasina) getIntent().getSerializableExtra("masina");
+        if (primita != null) {
+            etMarca.setText(primita.getMarca());
+            cbNoua.setChecked(primita.isNoua());
+            if (primita.getCombustibil().equals("Diesel")) {
+                rgCombustibil.check(R.id.rbDiesel);
+            } else {
+                rgCombustibil.check(R.id.rbBenzina);
+            }
+            spCuloare.setSelection(adapter.getPosition(primita.getCuloare()));
+            rbRating.setRating(primita.getRating());
+            swAutomata.setChecked(primita.isAutomata());
+        }
+
 
         btnSalveaza.setOnClickListener(v -> {
             String marca = etMarca.getText().toString();
