@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         tvRezultat = findViewById(R.id.tvRezultat);
         Button btnAdauga = findViewById(R.id.btnAdauga);
+        Button btnnewActivity = findViewById(R.id.btnNewActivity);
 
         btnAdauga.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddActivity.class);
@@ -68,5 +69,12 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("lista", listaMasini);
             startActivity(intent);
         });
+
+        btnnewActivity.setOnClickListener(v->{
+            Intent intent = new Intent(MainActivity.this, NewActivity.class);
+            launcher.launch(intent);
+        });
+
+
     }
 }
