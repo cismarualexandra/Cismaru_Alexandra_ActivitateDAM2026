@@ -70,7 +70,7 @@ public class AddActivityAI extends AppCompatActivity {
             AMasina masina = new AMasina(marca, culoare, noua, combustibil, automata, rating);
 
             Bundle bundle = new Bundle();
-            bundle.putSerializable("masina", masina);
+            bundle.putParcelable("masina", masina);
             Intent rezultat = new Intent();
             rezultat.putExtras(bundle);
             setResult(RESULT_OK, rezultat);

@@ -1,10 +1,13 @@
 package com.example.sem4_aplicatii;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -44,9 +47,9 @@ public class NewActivity extends AppCompatActivity {
         List<String> linkuriImagini = new ArrayList<>();
         linkuriImagini.add("https://static.bcchauto.ro/blog/620/masini-1000-cp.jpg");
         linkuriImagini.add("https://usercontent.cdn.workleto.com/bcchauto/carstock/27152/6980c9d22326f1770047954-86980c9d24b604.jpg");
-        linkuriImagini.add("");
-        linkuriImagini.add("");
-        linkuriImagini.add("");
+        linkuriImagini.add("https://a.storyblok.com/f/322327/5760x2850/487d3ceaf7/cz26w11ox0001-911-turbo-s-cabrio-side-desktop.jpg");
+        linkuriImagini.add("https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/RO_local/2024/Produse/T-Hybrid-pentru-o-performanță-semnificativ-îmbunătățită/S24_0909_fine.jpg/jcr:content/S24_0909_fine.jpg");
+        linkuriImagini.add("https://newsroom.porsche.com/dam/jcr:f24e0637-0cf3-455b-9380-8f45d96a81bd/S24_0908_fine.jpg");
 
         Executor executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.myLooper());
@@ -84,6 +87,15 @@ public class NewActivity extends AppCompatActivity {
                         lv.setAdapter(adapter);
                     }
                 });
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent it = new Intent(NewActivity.this, WebViewActivity.class);
+                it.putExtra("link", lista.get(i).getLink());
+                startActivity(it);
             }
         });
     }

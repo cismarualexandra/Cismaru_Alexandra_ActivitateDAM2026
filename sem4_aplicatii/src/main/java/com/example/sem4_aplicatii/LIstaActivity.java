@@ -50,7 +50,7 @@ public class LIstaActivity extends AppCompatActivity {
 
         ListView lvMasini = findViewById(R.id.lvMasini);
 
-        listMasini = (ArrayList<AMasina>) getIntent().getSerializableExtra("lista");
+        listMasini = getIntent().getParcelableArrayListExtra("lista");
         if (listMasini == null) {
             listMasini = new ArrayList<>();
         }
