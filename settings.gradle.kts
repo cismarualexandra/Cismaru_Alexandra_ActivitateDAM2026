@@ -26,3 +26,4 @@ rootProject.name = "DAM_SEMINAR"
 include(":app")
 include(":seminar4")
 include(":sem4_aplicatii")
+include(":seminar9")
